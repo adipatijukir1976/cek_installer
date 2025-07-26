@@ -1,43 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <title>Chapzee App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon dari icon.png -->
+  <link rel="icon" href="/icon.png" type="image/png">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
+      padding: 0;
       font-family: sans-serif;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-      padding-top: 100px;
-      background: white;
+      flex-direction: column;
     }
+
     img {
-      width: 100px;
+      width: 130px; /* diperbesar */
+      height: auto;
     }
-    h2 {
-      margin-top: 20px;
-      font-size: 20px;
+
+    .pengguna-label {
+      margin-top: 25px;
+      font-size: 22px;
+      color: #333;
     }
+
+    .pengguna-jumlah {
+      font-size: 32px;
+      font-weight: bold;
+      color: #000;
+      margin-top: 5px;
+    }
+
     .btn {
-      margin-top: 30px;
+      margin-top: 40px;
       padding: 20px 40px;
-      font-size: 36px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #000;
       border: none;
       background-color: yellow;
       border-radius: 30px;
-      box-shadow: 3px 5px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: 3px 5px 0px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: gold;
     }
   </style>
 </head>
 <body>
-  <img src="https://raw.githubusercontent.com/adipatijukir1976/puspamanga/refs/heads/main/icon.png" alt="logo">
-  <h2 id="pengguna">Total pengguna ...</h2>
-  <a href="https://example.com/app.apk"><button class="btn">Download</button></a>
+  <img src="/icon.png" alt="Chapzee Icon">
+
+  <div class="pengguna-label">Total pengguna</div>
+  <div class="pengguna-jumlah" id="pengguna">...</div>
+
+  <a href="/chapzee.apk"><button class="btn">Download</button></a>
 
   <script>
     fetch("https://raw.githubusercontent.com/adipatijukir1976/cek_installer/main/installs.json")
       .then(res => res.json())
       .then(data => {
-        document.getElementById("pengguna").innerText = "Total pengguna " + data.total;
+        document.getElementById("pengguna").innerText = data.total.toLocaleString("id-ID");
+      })
+      .catch(() => {
+        document.getElementById("pengguna").innerText = "-";
       });
   </script>
 </body>
