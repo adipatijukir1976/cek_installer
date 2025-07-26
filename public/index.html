@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chapzee App</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background: white;
+    }
+    img {
+      width: 100px;
+    }
+    h2 {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    .btn {
+      margin-top: 30px;
+      padding: 20px 40px;
+      font-size: 36px;
+      border: none;
+      background-color: yellow;
+      border-radius: 30px;
+      box-shadow: 3px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <img src="https://raw.githubusercontent.com/adipatijukir1976/puspamanga/refs/heads/main/icon.png" alt="logo">
+  <h2 id="pengguna">Total pengguna ...</h2>
+  <a href="https://example.com/app.apk"><button class="btn">Download</button></a>
+
+  <script>
+    fetch("https://raw.githubusercontent.com/adipatijukir1976/cek_installer/main/installs.json")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("pengguna").innerText = "Total pengguna " + data.total;
+      });
+  </script>
+</body>
+</html>
