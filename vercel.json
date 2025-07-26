@@ -8,6 +8,11 @@
   "routes": [
     { "src": "/api/install", "dest": "api/install.js" },
     { "src": "/api/update", "dest": "api/update.js" },
+
+    // File statis seperti gambar, APK, CSS, JS, ikon
+    { "src": "/(.*\\.(?:png|jpg|jpeg|gif|ico|svg|css|js|apk))", "dest": "/public/$1" },
+
+    // Semua sisanya ke index.html (SPA behavior)
     { "src": "/(.*)", "dest": "/public/index.html" }
   ]
 }
