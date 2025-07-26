@@ -2,10 +2,12 @@
   "version": 2,
   "builds": [
     { "src": "api/install.js", "use": "@vercel/node" },
+    { "src": "api/update.js", "use": "@vercel/node" },
     { "src": "public/index.html", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/install", "dest": "api/install.js" },
+    { "src": "/api/update", "dest": "api/update.js" },
     { "src": "/(.*)", "dest": "/public/index.html" }
   ]
 }
